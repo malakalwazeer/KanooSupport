@@ -9,6 +9,8 @@ import { updateListingRoute } from './routes/updateListing';
 
 dotenv.config();
 
+
+
 const SECRET_KEY = process.env.JWT_SECRET;
 console.log('JWT_SECRET:', SECRET_KEY); 
 
