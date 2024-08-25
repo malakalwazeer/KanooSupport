@@ -1,0 +1,158 @@
+<div mat-dialog-content class="container">
+  <form [formGroup]="itemForms">
+    <div class="row">
+      
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>DATE</mat-label>
+          <input matInput [(ngModel)]="Date" [matDatepicker]="picker" formControlName="Date">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>KIT REF NO</mat-label>
+          <input matInput type="text" formControlName="KITREF_NO">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Month</mat-label>
+          <mat-select [(ngModel)]="selectedMonth" formControlName="Month">
+            <mat-option value="SELECTMONTH">Select Month</mat-option>
+            <mat-option value="JAN">January</mat-option>
+            <mat-option value="FEB">February</mat-option>
+            <mat-option value="MAR">March</mat-option>
+            <mat-option value="APR">April</mat-option>
+            <mat-option value="MAY">May</mat-option>
+            <mat-option value="JUN">June</mat-option>
+            <mat-option value="JUL">July</mat-option>
+            <mat-option value="AUG">August</mat-option>
+            <mat-option value="SEP">September</mat-option>
+            <mat-option value="OCT">October</mat-option>
+            <mat-option value="NOV">November</mat-option>
+            <mat-option value="DEC">December</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>LENOVO CLAIM</mat-label>
+          <input matInput type="text" formControlName="LENOVO_CLAIM">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>CUSTOMER</mat-label>
+          <input matInput type="text" formControlName="Customer">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>MACHINE TYPE</mat-label>
+          <input matInput type="text" formControlName="Machine_Type">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>SERIAL NO</mat-label>
+          <input matInput type="text" formControlName="Serial_NO">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>WARRANTY EXPIRY</mat-label>
+          <input matInput [(ngModel)]="Warranty_Expiry" [matDatepicker]="warrantyPicker" formControlName="Warranty_Expiry">
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="warrantyPicker"></mat-datepicker-toggle>
+          <mat-datepicker #warrantyPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>WARRANTY TYPE</mat-label>
+          <input matInput type="text" formControlName="Warranty_Type">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>DEF FRU</mat-label>
+          <input matInput type="text" formControlName="DEF_FRU">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>DEF SERIAL NO</mat-label>
+          <input matInput type="text" formControlName="DEF_SERIAL_NO">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>REP FRU</mat-label>
+          <input matInput type="text" formControlName="REP_FRU">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>REP S.NO</mat-label>
+          <input matInput type="text" formControlName="REP_SNO">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>PROBLEM REPORTED</mat-label>
+          <input matInput type="text" formControlName="Problem_Reported">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>ACTION TAKEN</mat-label>
+          <input matInput type="text" formControlName="Action_Taken">
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>RECEIVED DATE</mat-label>
+          <input matInput [(ngModel)]="Recieved_Date" [matDatepicker]="datePicker" formControlName="Recieved_Date">
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+          <mat-datepicker #datePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>REMARKS</mat-label>
+          <input matInput type="text" formControlName="Remarks">
+        </mat-form-field>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12 text-center">
+        <button class="btn btn-success custom-btn-save" (click)="onSaveItem()">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Close</button>
+</div>
