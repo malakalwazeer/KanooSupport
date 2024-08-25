@@ -7,6 +7,7 @@ export const createNewListingRoute = {
     handler: async (req, h) => {
         const id = uuid();
         const {
+            listingDate='', // Renamed from Date to avoid conflict
             KITREF_NO = '',
             Month = '',
             LENOVO_CLAIM = '',
@@ -30,8 +31,8 @@ export const createNewListingRoute = {
         const userId = '12345';
         const views = 0;
 
-        // Automatically set the DateField  to the current date and time
-        const currentDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        // Define currentDate in MySQL DATETIME format
+        const currentDate = new Date().toISOString().slice(0, 19).replace('T', ' '); // Converts to 'YYYY-MM-DD HH:MM:SS'
 
         try {
             await db.query(`
@@ -46,7 +47,7 @@ export const createNewListingRoute = {
             `,
                 [
                     id,
-                    currentDate,         // Automatically set current date
+                    listingDate, // Use the renamed property here
                     KITREF_NO,
                     Month,
                     LENOVO_CLAIM,
@@ -61,10 +62,10 @@ export const createNewListingRoute = {
                     REP_SNO,
                     Problem_Reported,
                     Action_Taken,
-                    Recieved_Date,         
+                    Recieved_Date,
                     Remarks,
                     CreateUserId,
-                    currentDate,         // Automatically set current date
+                    currentDate,         // Use the defined currentDate here
                     userId,
                     views
                 ]
@@ -72,7 +73,7 @@ export const createNewListingRoute = {
 
             return {
                 id,
-                DateField: currentDate,        // Automatically set current date
+                listingDate, // Use the renamed property here
                 KITREF_NO,
                 Month,
                 LENOVO_CLAIM,
@@ -87,10 +88,10 @@ export const createNewListingRoute = {
                 REP_SNO,
                 Problem_Reported,
                 Action_Taken,
-                Recieved_Date,    
+                Recieved_Date,
                 Remarks,
                 CreateUserId,
-                CreateDate: currentDate,       // Automatically set current date
+                CreateDate: currentDate,  // Use the defined currentDate here
                 user_id: userId,
                 views
             };
