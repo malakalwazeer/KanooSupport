@@ -37,7 +37,7 @@ export const createNewListingRoute = {
         try {
             await db.query(`
                 INSERT INTO listings (
-                    id, Date, KITREF_NO, Month, LENOVO_CLAIM, Customer, Machine_Type, Serial_NO, 
+                    id, listingDate, KITREF_NO, Month, LENOVO_CLAIM, Customer, Machine_Type, Serial_NO, 
                     Warranty_Expiry, Warranty_Type, DEF_FRU, DEF_SERIAL_NO, REP_FRU, REP_SNO, 
                     Problem_Reported, Action_Taken, Recieved_Date, Remarks, CreateUserId, CreateDate, 
                     user_id, views

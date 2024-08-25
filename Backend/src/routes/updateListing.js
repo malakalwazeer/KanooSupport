@@ -6,7 +6,7 @@ export const updateListingRoute = {
     handler: async (req, h) => {
         const { id } = req.params;
         const {
-            Date: ListingDate,
+            listingDate,
             KITREF_NO,
             Month,
             LENOVO_CLAIM,
@@ -33,12 +33,12 @@ export const updateListingRoute = {
             // Update the record
             const updateResult = await db.query(`
                 UPDATE listings
-                SET Date=?, KITREF_NO=?, Month=?, LENOVO_CLAIM=?, Customer=?, Machine_Type=?, Serial_NO=?, 
+                SET listingDate=?, KITREF_NO=?, Month=?, LENOVO_CLAIM=?, Customer=?, Machine_Type=?, Serial_NO=?, 
                     Warranty_Expiry=?, Warranty_Type=?, DEF_FRU=?, DEF_SERIAL_NO=?, REP_FRU=?, REP_SNO=?, 
                     Problem_Reported=?, Action_Taken=?, Recieved_Date=?, Remarks=?, ModifyUserId=?, ModifyDate=?
                 WHERE id=? AND user_id=?
             `, [
-                ListingDate, KITREF_NO, Month, LENOVO_CLAIM, Customer, Machine_Type, Serial_NO, 
+                listingDate, KITREF_NO, Month, LENOVO_CLAIM, Customer, Machine_Type, Serial_NO, 
                 Warranty_Expiry, Warranty_Type, DEF_FRU, DEF_SERIAL_NO, REP_FRU, REP_SNO, 
                 Problem_Reported, Action_Taken, Recieved_Date, Remarks, ModifyUserId, ModifyDate, id, userId
             ]);
