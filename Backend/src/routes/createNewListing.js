@@ -30,7 +30,7 @@ export const createNewListingRoute = {
         const userId = '12345';
         const views = 0;
 
-        // Automatically set the DateField and Recieved_Date to the current date and time
+        // Automatically set the DateField  to the current date and time
         const currentDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
         try {
@@ -61,7 +61,7 @@ export const createNewListingRoute = {
                     REP_SNO,
                     Problem_Reported,
                     Action_Taken,
-                    Recieved_Date,         // Automatically set current date
+                    Recieved_Date,         
                     Remarks,
                     CreateUserId,
                     currentDate,         // Automatically set current date
