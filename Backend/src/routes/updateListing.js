@@ -43,16 +43,23 @@ export const updateListingRoute = {
                 Problem_Reported, Action_Taken, Recieved_Date, Remarks, ModifyUserId, ModifyDate, id, userId
             ]);
 
-            console.log('Update result:', updateResult);
+            console.log('Update result:', JSON.stringify(updateResult, null, 2));
 
             // Retrieve updated record
-            const { rows: updatedResult } = await db.query(
+            const updatedResult = await db.query(
                 'SELECT * FROM listings WHERE id=? AND user_id=?',
                 [id, userId]
             );
 
-            if (updatedResult.length > 0) {
-                return h.response(updatedResult[0]).code(200);
+            console.log('Updated result:', JSON.stringify(updatedResult, null, 2));
+
+            // Check the structure of updatedResult
+            const updatedRows = updatedResult.results;// updatedResult.rows || updatedResult;
+            
+            if (Array.isArray(updatedRows) && updatedRows.length > 0) {
+
+                return h.response(updatedRows[0]).code(200);
+                
             } else {
                 return h.response({ error: 'Listing not found after update' }).code(404);
             }
