@@ -31,7 +31,7 @@ export const updateListingRoute = {
 
         try {
             // Update the record
-            await db.query(`
+            const updateResult = await db.query(`
                 UPDATE listings
                 SET Date=?, KITREF_NO=?, Month=?, LENOVO_CLAIM=?, Customer=?, Machine_Type=?, Serial_NO=?, 
                     Warranty_Expiry=?, Warranty_Type=?, DEF_FRU=?, DEF_SERIAL_NO=?, REP_FRU=?, REP_SNO=?, 
@@ -42,6 +42,8 @@ export const updateListingRoute = {
                 Warranty_Expiry, Warranty_Type, DEF_FRU, DEF_SERIAL_NO, REP_FRU, REP_SNO, 
                 Problem_Reported, Action_Taken, Recieved_Date, Remarks, ModifyUserId, ModifyDate, id, userId
             ]);
+
+            console.log('Update result:', updateResult);
 
             // Retrieve updated record
             const { rows: updatedResult } = await db.query(
@@ -55,9 +57,8 @@ export const updateListingRoute = {
                 return h.response({ error: 'Listing not found after update' }).code(404);
             }
         } catch (err) {
-            console.error('Error updating data:', err);
+            console.error('Error updating data:', err.message, err.stack);
             return h.response({ error: 'Failed to update listing' }).code(500);
         }
     }
 };
-
