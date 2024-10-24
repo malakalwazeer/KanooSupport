@@ -33,16 +33,22 @@ const listingsRoute = {
     options: {
         pre: [validateAuth]
     },
-    handler: async (request, h) => {
-        try {
-            const { results } = await db.query('SELECT * FROM listings');
-            // Directly return results, which are typically arrays of RowDataPackets
-            return h.response(results).code(200);
-        } catch (err) {
-            console.error('Database query error:', err);
-            return Boom.internal('An error occurred while fetching listings');
-        }
+    handler: (request, h) => {
+        return new Promise((resolve, reject) => {
+            db.query('SELECT * FROM listings WHERE IsDeleted = 0', (err, results) => {
+                if (err) {
+                    console.error('Database query error:', err);
+                    return reject(Boom.internal('An error occurred while fetching listings'));
+                }
+                console.log('Query result:', results); // Log the result
+                resolve(h.response(results).code(200));
+            });
+        });
     }
+    
 };
 
+
+
 export default listingsRoute;
+
